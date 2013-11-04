@@ -8,6 +8,7 @@ require 'instagram'
 require 'sinatra/activerecord'
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require_relative 'config/instagram'
 
 Dotenv.load
 set :database, { adapter: 'postgresql',
@@ -15,4 +16,5 @@ set :database, { adapter: 'postgresql',
                  host: 'localhost' }
 
 class TweeGrams < ActiveRecord::Base
+  
 end
