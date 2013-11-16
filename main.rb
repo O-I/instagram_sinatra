@@ -1,5 +1,6 @@
 require 'pg'
 require 'pry'
+require 'pry'
 require 'rake'
 require 'dotenv'
 require 'instagram'
@@ -16,5 +17,14 @@ set :database, { adapter: 'postgresql',
                  host: 'localhost' }
 
 class TweeGrams < ActiveRecord::Base
-  
+end
+
+get '/pics' do
+  Instagram.configure do |config|
+    config.client_id = ENV['CLIENT_ID']
+    config.client_secret = ENV['CLIENT_SECRET']
+    config.access_token = ENV['ACCESS_TOKEN']
+  end 
+  @pics = Instagram.media_popular
+  erb :popular_pics
 end
