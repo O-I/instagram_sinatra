@@ -26,5 +26,6 @@ get '/pics' do
     config.access_token = ENV['ACCESS_TOKEN']
   end 
   @pics = Instagram.media_popular
+  binding.pry
   erb :popular_pics
 end
