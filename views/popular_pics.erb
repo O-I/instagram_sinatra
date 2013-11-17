@@ -1,6 +1,8 @@
 <% @pics.each do |pic| %>
   <div id="container">
-    <img src="<%= pic.images.standard_resolution.url %>" />
-    <br /><div id="attribution">Shot by <%= pic.user.full_name %> (aka <%= pic.user.username %>)</div>
+    <a href=<%= pic.link %>>
+      <img src="<%= pic.images.standard_resolution.url %>" />
+    </a><br />
+    <div id="attribution">Shot by <%= pic.user.full_name %> (aka <a href='http://instagram.com/<%= pic.user.username %>'><%= pic.user.username %></a>)</div>
   </div>
 <% end %>
