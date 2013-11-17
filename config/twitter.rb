@@ -5,4 +5,4 @@
   config.access_token_secret = ENV["ACCESS_SECRET"]
 end
 
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+# OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
