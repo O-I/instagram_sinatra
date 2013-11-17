@@ -1,3 +1,6 @@
 <% @pics.each do |pic| %>
-  <img src="<%= pic.images.standard_resolution.url %>" />
+    <div id="container">
+    <img src="<%= pic.images.standard_resolution.url %>" />
+    <br /><div>Shot by <%= pic.user.full_name %> aka <%= pic.user.username %></div>
+</div>
 <% end %>

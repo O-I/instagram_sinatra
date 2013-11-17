@@ -9,7 +9,7 @@ require 'instagram'
 require 'sinatra/activerecord'
 require 'sinatra'
 require 'sinatra/reloader' if development?
-require_relative 'config/instagram'
+require_relative './config/instagram'
 
 Dotenv.load
 set :database, { adapter: 'postgresql',
@@ -19,12 +19,13 @@ set :database, { adapter: 'postgresql',
 class TweeGrams < ActiveRecord::Base
 end
 
+Instagram.configure do |config|
+  config.client_id = ENV['CLIENT_ID']
+  config.client_secret = ENV['CLIENT_SECRET']
+  config.access_token = ENV['ACCESS_TOKEN']
+end 
+
 get '/pics' do
-  Instagram.configure do |config|
-    config.client_id = ENV['CLIENT_ID']
-    config.client_secret = ENV['CLIENT_SECRET']
-    config.access_token = ENV['ACCESS_TOKEN']
-  end 
   @pics = Instagram.media_popular
   binding.pry
   erb :popular_pics
