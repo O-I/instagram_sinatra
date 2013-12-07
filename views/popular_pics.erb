@@ -4,6 +4,11 @@
       <img src="<%= pic.images.standard_resolution.url %>" />
     </a><br />
     <div id="attribution">Shot by <%= pic.user.full_name %> (aka <a href='http://instagram.com/<%= pic.user.username %>'><%= pic.user.username %></a>)</div>
-    <div class="tweet"><%= @client.user_timeline(pic.user.username).map(&:text).sample || "" %></div>
+    <div class="tweet">
+      <% begin %> 
+        <%= @client.user_timeline(pic.user.username).map(&:text).sample %>
+      <% rescue %>
+        <%= "" %></div>
+      <% end %>
   </div>
 <% end %>

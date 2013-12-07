@@ -33,6 +33,6 @@ get '/pics' do
   end
   
   @pics = Instagram.media_popular
-  binding.pry
+  # binding.pry
   erb :popular_pics
 end
