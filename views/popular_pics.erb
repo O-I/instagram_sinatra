@@ -1,5 +1,5 @@
 <% @pics.each do |pic| %>
-  <div id="container">
+  <div class="box">
     <a href=<%= pic.link %>>
       <img src="<%= pic.images.standard_resolution.url %>" />
     </a><br />
@@ -8,7 +8,8 @@
       <% begin %> 
         <%= @client.user_timeline(pic.user.username).map(&:text).sample %>
       <% rescue %>
-        <%= "" %></div>
+        <%= "" %>
+    </div>
       <% end %>
   </div>
 <% end %>

@@ -8,6 +8,11 @@ img {
   width:  640px;
 }
 
-#container {
+.tweet {
+  width: 640px;
+}
+
+.box {
   display: inline-block;
+  width: 640px;
 }
