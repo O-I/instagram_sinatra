@@ -4,15 +4,19 @@ body {
 }
 
 img {
-  height: 640px;
-  width:  640px;
+  height: 320px;
+  width:  320px;
 }
 
 .tweet {
-  width: 640px;
+  width: 320px;
+}
+
+.attribution {
+  width: 320px;
 }
 
 .box {
   display: inline-block;
-  width: 640px;
+  height: 381px;
 }
